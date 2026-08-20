@@ -1,0 +1,5 @@
+# Ignore every file by default, while keeping C++ source files and this rule file.
+*
+!*/
+!*.cpp
+!.gitignore
