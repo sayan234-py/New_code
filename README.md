@@ -1,110 +1,141 @@
 <div align="center">
 
-<!-- ✨ Animated Banner ✨ -->
-<img src="./sayan-banner.svg?v=1" alt="Sayan Nandi — Full-Stack MERN Developer" width="100%"/>
+# ⚡ New_code
+
+### A structured C++ practice repository — from first principles to control flow
+
+<p>
+  <img src="https://img.shields.io/badge/Language-C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Level-Beginner→Intermediate-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/github/last-commit/sayan234-py/New_code?style=for-the-badge&color=orange"/>
+  <img src="https://img.shields.io/github/repo-size/sayan234-py/New_code?style=for-the-badge&color=success"/>
+</p>
 
 </div>
 
-<br/>
+---
 
-<table align="center" border="0">
-<tr>
-<td width="38%" align="center" valign="middle">
+## 📖 About
 
-<!-- 🪪 Swinging Lanyard ID Card -->
-<img src="./sayan-lanyard.svg?v=1" alt="Sayan Nandi ID badge" width="300"/>
+**New_code** is my day-to-day C++ practice log — a growing collection of small, self-contained programs written while working through core language concepts. Every file targets one idea at a time: a data type, an operator, an I/O pattern, a control-flow construct. The goal isn't scale, it's precision — understanding *why* a line of code behaves the way it does before moving to the next topic.
 
-</td>
-<td width="62%" valign="middle">
+Each exercise is self-documenting: the problem statement is printed by the program itself (often color-coded in the terminal), so you can run any file and immediately see what it's meant to demonstrate.
 
-### 💗 My Featured Projects
+---
 
-| 🚀 Project | 💻 Tech | Description |
-|:---|:---:|:---|
-| [🛍️ Nandi Fashions — E-Commerce](https://github.com/sayan234-py/E-Commerce) | `React` `Node.js` `MongoDB` | MERN store with persistent cart, JWT auth &amp; admin panel |
-| [🌤️ Weather App — Deep Sky Edition](https://github.com/sayan234-py/weather) | `React` `WeatherAPI` `CSS3` | Dark glassmorphism dashboard with AQI &amp; moon data |
-| [💼 Portfolio Site](https://github.com/sayan234-py/Portfolio) | `Vite` `React` | Glassmorphism portfolio, 95+ Lighthouse score |
+## 🗂️ Repository Structure
 
-<br/>
+```
+New_code/
+├── chapter2/          # Fundamentals: variables, types, casting, operators
+│   ├── first.cpp
+│   ├── ex2.cpp … ex15.cpp
+│
+├── chapter3/           # I/O, strings, control flow, arrays & matrices
+│   ├── ex1.cpp … ex19.cpp
+│
+├── ex1.cpp … ex5.cpp    # Quick standalone syntax drills
+├── pr1.cpp, pr6–pr10.cpp # Extra practice problems
+│
+└── .github/workflows/    # CI workflow for automated builds
+```
 
-> 💗 *"I ship complete, working projects — not half-finished experiments."*
+---
 
-<br/>
+## 🧩 What's Inside
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&pause=1000&color=FF7EB6&center=true&vCenter=true&width=440&lines=Actively+seeking+Frontend+%2F+Full+Stack+roles;React.js+%7C+Node.js+%7C+Express+%7C+MongoDB;Open+to+internships+%26+entry-level+roles" alt="Typing SVG"/>
+### Chapter 2 — Foundations
+| Topic | File |
+|---|---|
+| Declaring & printing `int`, `float`, `char`, `bool` | `first.cpp` |
+| Swapping two integers without a third variable | `ex2.cpp` |
+| `bool` type coercion & predict-the-output | `ex3.cpp` |
+| Area of a rectangle | `ex4.cpp` |
+| Explicit typecasting | `ex5.cpp` |
+| Character ↔ ASCII conversions | `ex6.cpp`, `ex7.cpp` |
+| Area of a circle (hardcoded constants) | `ex8.cpp` |
+| `x++` vs `++x` | `ex10.cpp` |
+| Enums for days of the week | `ex11.cpp` |
+| Celsius → Fahrenheit conversion | `ex12.cpp` |
+| Swapping via arithmetic operators only | `ex13.cpp` |
+| Profit / loss calculator | `ex14.cpp` |
+| `sizeof` across numeric types | `ex15.cpp` |
 
-</td>
-</tr>
-</table>
+### Chapter 3 — I/O, Strings & Control Flow
+| Topic | File |
+|---|---|
+| Reading name & age, formatted greeting | `ex1.cpp` |
+| `getline()` vs `cin >>` for strings | `ex1.cpp` |
+| Student marksheet with `iomanip` formatting | `ex10.cpp` |
+| `<cmath>` — Pythagorean third side | `ex12.cpp` |
+| `if` / `else if` ladder | `ex13.cpp`, `ex18.cpp` |
+| Ternary operator | `ex16.cpp` |
+| Logical operators | `ex17.cpp` |
+| Reading & summing space-separated integers | `ex3.cpp` |
+| Age input validation | `ex4.cpp` |
+| Matrix multiplication | `ex2.cpp` |
 
-<br/>
+### Root-Level Drills
+Short, single-purpose files (`ex1–ex5.cpp`, `pr1.cpp`, `pr6–pr10.cpp`) covering `cout` basics, ASCII art output, hardcoded arithmetic, and no-loop numeric printing — quick warm-ups between bigger topics.
+
+---
+
+## ▶️ Running a File
+
+Each program is fully standalone. Compile and run any one directly with g++:
+
+```bash
+g++ chapter2/ex12.cpp -o ex12
+./ex12
+```
+
+Or, on Windows with MinGW:
+
+```bash
+g++ chapter2\ex12.cpp -o ex12.exe
+ex12.exe
+```
+
+No external dependencies — everything runs with a standard C++ compiler (C++11 or later recommended).
+
+---
+
+## ⚙️ Continuous Integration
+
+This repo includes a `C/C++ CI` GitHub Actions workflow at `.github/workflows/c-cpp.yml`, which currently uses the default autotools-based template (`./configure && make`). Since these are standalone `.cpp` files rather than an autotools project, this step is a placeholder — swap it for a straightforward compile-check loop such as:
+
+```yaml
+- name: Compile all .cpp files
+  run: |
+    find . -name "*.cpp" -print0 | while IFS= read -r -d '' file; do
+      echo "Compiling $file"
+      g++ -std=c++17 -Wall "$file" -o /tmp/out
+    done
+```
+
+---
+
+## 🎯 Why This Repo Exists
+
+- 🧠 Build muscle memory for core C++ syntax and semantics
+- 🪜 Progress deliberately, chapter by chapter, instead of jumping to frameworks
+- 🧪 Keep every exercise runnable and verifiable on its own
+- 📈 Track growth over time as the chapter count increases
+
+---
+
+## 🙋 About Me
+
+**Sayan Nandi** — Final-year BCA student, building a full-stack (MERN) skill set alongside core CS fundamentals like this one.
+
+<p>
+  <a href="mailto:nsayan520@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/></a>
+  <a href="https://linkedin.com/in/sayan-nandi-152581359"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+  <a href="https://github.com/sayan234-py"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/></a>
+</p>
+
+---
 
 <div align="center">
-
-### 🛠️ Tech Stack
-
-<p>
-  <img src="https://skillicons.dev/icons?i=react,nodejs,express,mongodb,js,html,css,git,github,vercel,vscode,figma" alt="Tech Stack"/>
-</p>
-
-<p>
-  <img src="https://img.shields.io/badge/React.js-ff7eb6?style=for-the-badge&logo=react&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Node.js-c084fc?style=for-the-badge&logo=node.js&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Express.js-8b5cf6?style=for-the-badge&logo=express&logoColor=white"/>
-  <img src="https://img.shields.io/badge/MongoDB-e879f9?style=for-the-badge&logo=mongodb&logoColor=white"/>
-  <img src="https://img.shields.io/badge/JWT-ff7eb6?style=for-the-badge&logo=jsonwebtokens&logoColor=white"/>
-  <img src="https://img.shields.io/badge/JavaScript-c084fc?style=for-the-badge&logo=javascript&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Git-8b5cf6?style=for-the-badge&logo=git&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Vercel-ff7eb6?style=for-the-badge&logo=vercel&logoColor=white"/>
-</p>
-
-<br/>
-
-### 📊 GitHub Stats &amp; Graphs
-
-<img src="https://github-readme-stats.vercel.app/api?username=sayan234-py&show_icons=true&hide_border=true&bg_color=170e28&title_color=ff7eb6&icon_color=e879f9&text_color=c4b5fd&ring_color=ff7eb6&count_private=true" alt="GitHub Stats" height="185"/>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sayan234-py&layout=compact&hide_border=true&bg_color=170e28&title_color=ff7eb6&text_color=c4b5fd" alt="Top Languages" height="185"/>
-
-<br/><br/>
-
-<img src="https://streak-stats.demolab.com?user=sayan234-py&theme=radical&hide_border=true&background=170e28&ring=ff7eb6&fire=e879f9&currStreakLabel=c084fc" alt="GitHub Streak"/>
-
-<br/><br/>
-
-<!-- 📈 Contribution Activity Graph -->
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=sayan234-py&bg_color=170e28&color=ff7eb6&line=8b5cf6&point=e879f9&area=true&area_color=8b5cf6&hide_border=true&custom_title=Contribution%20Graph%20💗" alt="Contribution graph" width="95%"/>
-
-<br/><br/>
-
-<!-- 🏆 Trophies -->
-<img src="https://github-profile-trophy.vercel.app/?username=sayan234-py&theme=radical&no-frame=true&row=1&margin-w=10" alt="Trophies" width="95%"/>
-
-<br/><br/>
-
-### 🐍 Watch the snake eat my contributions
-
-<img src="https://raw.githubusercontent.com/sayan234-py/sayan234-py/output/github-contribution-grid-snake.svg" alt="Contribution snake"/>
-
-<!--
-  This image only renders once the GitHub Action in .github/workflows/snake.yml
-  has run at least once and generated the SVG on the "output" branch.
-  A ready-to-use pink-themed workflow is included below.
--->
-
-<br/><br/>
-
-### 📫 Let's Connect
-
-<a href="mailto:nsayan520@gmail.com"><img src="https://img.shields.io/badge/Email-ff7eb6?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
-<a href="https://linkedin.com/in/sayan-nandi-152581359"><img src="https://img.shields.io/badge/LinkedIn-c084fc?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-<a href="https://github.com/sayan234-py"><img src="https://img.shields.io/badge/GitHub-8b5cf6?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
-
-<br/><br/>
-
-<img src="https://komarev.com/ghpvc/?username=sayan234-py&color=ff7eb6&style=for-the-badge&label=PROFILE+VIEWS" alt="Profile views"/>
-
-<br/><br/>
-
-*💗 Final-year BCA student, preparing for SSC CGL, always shipping something new.*
-
+<i>⭐ If you find this useful as a C++ practice reference, consider starring the repo.</i>
 </div>
