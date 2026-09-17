@@ -27,22 +27,39 @@ Each exercise is self-documenting: the problem statement is printed by the progr
 
 ```
 New_code/
+├── chapter1/          # Absolute basics: cout, hardcoded output, no-loop drills
+│   ├── ex1.cpp … ex5.cpp
+│   ├── pr1.cpp, pr6.cpp … pr10.cpp
+│
 ├── chapter2/          # Fundamentals: variables, types, casting, operators
 │   ├── first.cpp
 │   ├── ex2.cpp … ex15.cpp
 │
-├── chapter3/           # I/O, strings, control flow, arrays & matrices
+├── chapter3/          # I/O, strings, control flow, arrays & matrices
 │   ├── ex1.cpp … ex19.cpp
 │
-├── ex1.cpp … ex5.cpp    # Quick standalone syntax drills
-├── pr1.cpp, pr6–pr10.cpp # Extra practice problems
+├── chapter4/          # Arrays/vectors, conditionals, mini-programs & games
+│   ├── ex1.cpp … ex15.cpp
 │
-└── .github/workflows/    # CI workflow for automated builds
+└── .github/workflows/  # CI workflow for automated builds
 ```
 
 ---
 
 ## 🧩 What's Inside
+
+### Chapter 1 — First Steps
+| Topic | File |
+|---|---|
+| Printing a single hardcoded string | `ex1.cpp`, `ex2.cpp`, `ex3.cpp` |
+| Chaining multiple `cout` outputs on one line | `ex4.cpp` |
+| Minimal "Hello"-style program | `ex5.cpp` |
+| Printing name & institution across separate lines | `pr1.cpp` |
+| ASCII art box using multiple `cout` statements | `pr6.cpp` |
+| Sum of two hardcoded numbers | `pr7.cpp` |
+| Printing a fixed header string only | `pr8.cpp` |
+| Printing 1–5 using five separate `cout` calls (no loop) | `pr9.cpp` |
+| Program start/end banner with a purpose comment | `pr10.cpp` |
 
 ### Chapter 2 — Foundations
 | Topic | File |
@@ -75,8 +92,24 @@ New_code/
 | Age input validation | `ex4.cpp` |
 | Matrix multiplication | `ex2.cpp` |
 
-### Root-Level Drills
-Short, single-purpose files (`ex1–ex5.cpp`, `pr1.cpp`, `pr6–pr10.cpp`) covering `cout` basics, ASCII art output, hardcoded arithmetic, and no-loop numeric printing — quick warm-ups between bigger topics.
+### Chapter 4 — Arrays, Conditionals & Mini-Programs
+| Topic | File |
+|---|---|
+| Arrays vs `std::vector` — declaring, sizing, pushing elements | `ex1.cpp` |
+| Menu-driven calculator with `enum class` | `ex2.cpp` |
+| Dice-roll frequency simulation with ANSI color output | `ex3.cpp` |
+| Palindrome check — 2-digit numbers | `ex4.cpp` |
+| Armstrong number check — 3-digit numbers | `ex5.cpp` |
+| Number-guessing game (`rand`, `srand`, guess loop) | `ex6.cpp` |
+| Leap year check | `ex7.cpp` |
+| Vowel / consonant / digit classifier | `ex8.cpp` |
+| Valid triangle check from three side lengths | `ex9.cpp` |
+| Cartesian quadrant detection from `(x, y)` | `ex10.cpp` |
+| Multiple-of-3-and-5 check | `ex11.cpp` |
+| Traffic light simulator (string → action) | `ex12.cpp` |
+| Uppercase / lowercase / digit character check | `ex13.cpp` |
+| Shipping cost calculator based on package weight | `ex14.cpp` |
+| Prime check via conditional logic (no loop, small range) | `ex15.cpp` |
 
 ---
 
@@ -85,15 +118,15 @@ Short, single-purpose files (`ex1–ex5.cpp`, `pr1.cpp`, `pr6–pr10.cpp`) cover
 Each program is fully standalone. Compile and run any one directly with g++:
 
 ```bash
-g++ chapter2/ex12.cpp -o ex12
-./ex12
+g++ chapter4/ex6.cpp -o ex6
+./ex6
 ```
 
 Or, on Windows with MinGW:
 
 ```bash
-g++ chapter2\ex12.cpp -o ex12.exe
-ex12.exe
+g++ chapter4\ex6.cpp -o ex6.exe
+ex6.exe
 ```
 
 No external dependencies — everything runs with a standard C++ compiler (C++11 or later recommended).
